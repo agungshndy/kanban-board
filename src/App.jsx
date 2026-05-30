@@ -1,21 +1,16 @@
-import AddCard from './components/AddCard'
-import Navbar from './components/NavBar'
-import Column from './components/Column'
-import Board from './components/Board'
-import Card from './components/Card'
-import './App.css'
+import React from 'react';
+import { useAuthStore } from './store/useAuthStore';
+import Navbar from './components/Navbar';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import './index.css';
 
-function App() {
-
+export default function App() {
+  const { user } = useAuthStore();
   return (
-    <>
-      <Navbar/>
-      <AddCard/>
-      <Board/>
-      <Column/>
-      <Card/>
-    </>
-  )
+    <div className="min-h-screen flex flex-col bg-slate-50">
+      {user && <Navbar />}
+      {user ? <Dashboard /> : <Login />}
+    </div>
+  );
 }
-
-export default App

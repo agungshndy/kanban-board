@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
-const getUsers = () => JSON.parse(localStorage.getItem('kanban_users') || '[]');
-const saveUsers = (users) => localStorage.setItem('kanban_users', JSON.stringify(users));
+const getUsers   = () => JSON.parse(localStorage.getItem('kanban_users') || '[]');
+const saveUsers  = (u) => localStorage.setItem('kanban_users', JSON.stringify(u));
 const getSession = () => JSON.parse(localStorage.getItem('kanban_session') || 'null');
 
 export const useAuthStore = create((set) => ({
